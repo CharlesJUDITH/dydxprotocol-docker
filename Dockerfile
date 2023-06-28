@@ -19,6 +19,9 @@ RUN mkdir -p /go/src /go/bin
 # Download and extract Cosmovisor
 RUN go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 
+# Untar the archive
+RUN tar -xvf dydxprotocold-v0.0.1-rc1-linux-amd64.tar.gz
+
 # Copy the local binary to the container
 COPY build/dydxprotocold-v0.0.1-rc1-linux-amd64 /bin/dydxprotocold
 
