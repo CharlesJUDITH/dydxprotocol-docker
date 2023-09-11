@@ -17,13 +17,18 @@ ENV GOBIN="/go/bin"
 RUN mkdir -p /go/src /go/bin
 
 # Download and extract Cosmovisor
-RUN go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
+#RUN go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 
 # Untar the archive
-RUN tar -xvf dydxprotocold-v0.0.1-rc1-linux-amd64.tar.gz
+#RUN tar -xvf dydxprotocold-v0.1.3-linux-amd64.tar.gz
 
 # Copy the local binary to the container
-COPY build/dydxprotocold-v0.0.1-rc1-linux-amd64 /bin/dydxprotocold
+COPY build/dydxprotocold-v0.2.1-linux-amd64 /bin/dydxprotocold
 
 # Set the PATH environment variable
-ENV PATH="/cosmovisor:${PATH}"
+#ENV PATH="/cosmovisor:${PATH}"
+EXPOSE 26656 \
+       26657 \
+       1317  \
+       9090  \
+       8080
